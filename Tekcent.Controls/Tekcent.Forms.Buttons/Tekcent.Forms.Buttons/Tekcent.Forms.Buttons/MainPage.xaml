@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Tekcent.Forms.Buttons"
+             xmlns:controls="clr-namespace:Tekcent.Forms.Buttons"
+             x:Class="Tekcent.Forms.Buttons.MainPage">
+
+  <StackLayout BackgroundColor="Black">
+    <controls:ImageButton
+      WidthRequest="100"
+      HeightRequest="50"
+      Text="Twitter" 
+      BackgroundColor="#01abdf" 
+      TextColor="#ffffff"
+      Source="icon"
+      Clicked="OnBtnClicked"
+      BorderRadius="0"/>
+  
+  <controls:ImageButton
+      WidthRequest="100"
+      HeightRequest="50"
+      Text="Twitter" 
+      BackgroundColor="#01abdf" 
+      TextColor="#ffffff"
+      Source="icon" 
+      ImageHeightRequest="100" 
+      IsFullImage="true"/>
+  </StackLayout>
+
+</ContentPage>
