@@ -13,7 +13,8 @@
       BackgroundColor="#01abdf" 
       TextColor="#ffffff"
       Source="icon"
-      Clicked="OnBtnClicked"/>
+      Clicked="OnBtnClicked"
+      BorderRadius="0"/>
   
   <controls:ImageButton
       WidthRequest="100"
@@ -22,7 +23,8 @@
       BackgroundColor="#01abdf" 
       TextColor="#ffffff"
       Source="icon" 
-      ImageHeightRequest="100" />
+      ImageHeightRequest="100" 
+      IsFullImage="true"/>
   </StackLayout>
 
 </ContentPage>
