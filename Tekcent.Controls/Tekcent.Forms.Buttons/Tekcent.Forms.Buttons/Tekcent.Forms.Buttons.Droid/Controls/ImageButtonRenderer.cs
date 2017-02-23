@@ -81,7 +81,13 @@ namespace Tekcent.Forms.Buttons.Droid.Controls
                         drawable.SetTintMode(PorterDuff.Mode.SrcIn);
                     }
 
-                    using (var scaledDrawable = GetScaleDrawable(drawable, GetWidth(drawable, model.ImageWidthRequest), GetHeight(drawable, model.ImageHeightRequest)))
+                    if (model.IsFullImage)
+                    {
+                        model.Text = "";
+                    }
+
+                    using (var scaledDrawable = GetScaleDrawable(drawable, GetWidth(
+                        model.IsFullImage, drawable, model.ImageWidthRequest), GetHeight(model.IsFullImage, drawable, model.ImageHeightRequest)))
                     {
                         Drawable left = null;
                         Drawable right = null;
@@ -192,13 +198,27 @@ namespace Tekcent.Forms.Buttons.Droid.Controls
             return returnValue;
         }
 
-        private int GetWidth(BitmapDrawable bitmap, int requestedWidth)
+        private int GetWidth(bool isFullImage, BitmapDrawable bitmap, int requestedWidth)
         {
+            if (isFullImage)
+            {
+                return _screenWidth - Control.PaddingLeft;
+            }
+            
             return requestedWidth > 0 ? requestedWidth : bitmap.IntrinsicWidth;
         }
 
-        private int GetHeight(BitmapDrawable bitmap, int requestedHeight)
+        private int GetHeight(bool isFullImage, BitmapDrawable bitmap, int requestedHeight)
         {
+            if (isFullImage)
+            {
+                var xScale = _screenWidth / bitmap.IntrinsicWidth;
+
+                var absoluteHeight = xScale * bitmap.IntrinsicHeight;
+
+                return absoluteHeight - Control.PaddingTop;
+            }
+
             return requestedHeight > 0 ? requestedHeight : bitmap.IntrinsicHeight;
         }
     }
