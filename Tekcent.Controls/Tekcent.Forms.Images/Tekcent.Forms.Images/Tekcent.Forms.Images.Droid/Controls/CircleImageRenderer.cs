@@ -2,12 +2,11 @@ using Android.Graphics;
 using Android.Runtime;
 using System;
 using System.ComponentModel;
-using Tekcent.Forms.Images.Controls;
 using Tekcent.Forms.Images.Droid.Controls;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
-using Color = Xamarin.Forms.Color;
 using Android.Views;
+using Tekcent.Forms.Images;
 
 [assembly: ExportRenderer(typeof(CircleImage), typeof(CircleImageRenderer))]
 namespace Tekcent.Forms.Images.Droid.Controls
@@ -16,7 +15,15 @@ namespace Tekcent.Forms.Images.Droid.Controls
     public class CircleImageRenderer : ImageRenderer
     {
         
-        public async static void Init()
+        private CircleImage CircleImage
+        {
+            get
+            {
+                return (CircleImage)Element;
+            }
+        }
+
+        public static void Init()
         {
             var temp = DateTime.Now;
         }
@@ -51,8 +58,7 @@ namespace Tekcent.Forms.Images.Droid.Controls
         {
             try
             {
-
-                var radius = Math.Min(Width, Height) / 2;
+                var radius = (float)Math.Min(Width, Height) / 2;
 
                 var borderThickness = (float)((CircleImage)Element).BorderThickness;
 
@@ -69,16 +75,13 @@ namespace Tekcent.Forms.Images.Droid.Controls
                 var path = new Path();
                 path.AddCircle(Width / 2.0f, Height / 2.0f, radius, Path.Direction.Ccw);
 
-
                 canvas.Save();
                 canvas.ClipPath(path);
-
-
 
                 var paint = new Paint();
                 paint.AntiAlias = true;
                 paint.SetStyle(Paint.Style.Fill);
-                paint.Color = ((CircleImage)Element).FillColor.ToAndroid();
+               // paint.Color = ((CircleImage)Element).FillColor.ToAndroid();
                 canvas.DrawPath(path, paint);
                 paint.Dispose();
 
