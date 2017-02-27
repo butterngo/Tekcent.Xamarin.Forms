@@ -1,4 +1,4 @@
-﻿namespace Tekcent.Forms.Images.Controls
+﻿namespace Tekcent.Forms.Images
 {
     using Xamarin.Forms;
 
