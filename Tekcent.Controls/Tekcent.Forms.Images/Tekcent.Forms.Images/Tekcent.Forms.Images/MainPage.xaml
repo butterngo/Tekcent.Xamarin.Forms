@@ -11,6 +11,6 @@
   
   <!--<controls:CircleImage Source="image1.jpg"></controls:CircleImage>-->
   
-  <controls:SquareImage Source="image1.jpg"></controls:SquareImage>
+  <controls:SquareImage Source="image1.jpg" BorderRadius="150"></controls:SquareImage>
   
 </ContentPage>
