@@ -5,12 +5,11 @@
              x:Class="Tekcent.Forms.Images.MainPage"
              xmlns:controls="clr-namespace:Tekcent.Forms.Images">
 
-  <Label Text="Welcome to Xamarin Forms!"
-           VerticalOptions="Center"
-           HorizontalOptions="Center" />
-  
-  <!--<controls:CircleImage Source="image1.jpg"></controls:CircleImage>-->
-  
-  <controls:SquareImage Source="image1.jpg" BorderRadius="150"></controls:SquareImage>
-  
+    <StackLayout>
+        
+        <Label Text="Welcome to Xamarin Forms!" />
+        <controls:SquareImage Source="image1.jpg" BorderRadius="150"></controls:SquareImage>
+        
+    </StackLayout>
+
 </ContentPage>

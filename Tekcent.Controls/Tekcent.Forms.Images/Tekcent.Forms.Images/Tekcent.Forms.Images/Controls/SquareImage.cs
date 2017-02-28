@@ -46,7 +46,7 @@
               declaringType: typeof(SquareImage),
               defaultValue: 50);
 
-        public float BorderRadius
+        public int BorderRadius
         {
             get { return (int)GetValue(BorderRadiusProperty); }
             set { SetValue(BorderRadiusProperty, value); }
